@@ -1,5 +1,6 @@
 ui_print("");
 ui_print("Lightning Zap! kernel Skyrocket Edition");
+ui_print("Overclocked and Undervolted");
 mount("ext4", "EMMC", "/dev/block/mmcblk0p24", "/system");
 ui_print("Deleting Cache...");
 delete_recursive("/cache");
@@ -20,6 +21,5 @@ ui_print("############################");
 ui_print("Enjoy the Lightning Zap!");
 ui_print("############################");
 ui_print("Done!");
-ui_print("Auto-reboot has been removed.");
-ui_print("Fix perms and reboot");
-
+ui_print("I will now reboot myself :D");
+run_program("/sbin/reboot");
