@@ -1,0 +1,25 @@
+ui_print("");
+ui_print("Lightning Zap! kernel Skyrocket Edition");
+mount("ext4", "EMMC", "/dev/block/mmcblk0p24", "/system");
+ui_print("Deleting Cache...");
+delete_recursive("/cache");
+ui_print("Deleting Dalvik-Cache...");
+delete_recursive("/data/dalvik-cache");
+package_extract_dir("system", "/system");
+show_progress(0.500000, 0);
+set_perm_recursive(0, 2000, 0755, 0777, "/system/etc/init.d");
+set_perm(0, 0, 0777, "/system/etc/init.d");
+set_perm(0, 0, 0777, "/system/etc/init.qcom.post_boot.sh");
+set_perm_recursive(0, 2000, 0755, 0755, "/system/xbin");
+assert(package_extract_file("boot.img", "/tmp/boot.img"),
+write_raw_image("tmp/boot.img", "/dev/block/mmcblk0p8"),
+delete("/tmp/boot.img"));
+show_progress(0.100000, 0);
+run_program("/umount", "/system");
+ui_print("############################");
+ui_print("Enjoy the Lightning Zap!");
+ui_print("############################");
+ui_print("Done!");
+ui_print("Auto-reboot has been removed.");
+ui_print("Fix perms and reboot");
+

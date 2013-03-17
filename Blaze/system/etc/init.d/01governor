@@ -1,0 +1,35 @@
+#!/system/bin/sh
+#Battery Tweaks
+#To select a tweak, remove the "#" before the setting
+#Optimal values for up_threshold is 45-95. Higher number=higher battery/lower performance. Lower number=higher performance/lower battery life
+
+mount -o remount rw /system
+mount -o remount rw /sys
+
+#=========
+#OnDemand. 
+#=========
+AWAKE_GOVERNOR="ondemand"
+#SLEEP_GOVERNOR="ondemand"
+	#echo "45" > /sys/devices/system/cpu/cpufreq/ondemand/up_threshold;
+#===================================
+#Uncomment to make active. Now you can put higher values than just 1. 1000 is max
+#===================================	
+	#echo "1" > /sys/devices/system/cpu/cpufreq/ondemand/powersave_bias;
+	#echo "1" > /sys/devices/system/cpu/cpufreq/ondemand/io_is_busy;
+	echo "1" > /sys/devices/system/cpu/cpufreq/ondemand/down_differential;
+	#echo "1" > /sys/devices/system/cpu/cpufreq/ondemand/ignore_nice_load;
+	
+#===================================
+#Be cautious when changing sampling_rate values
+#===================================
+	#echo "77500" > /sys/devices/system/cpu/cpufreq/ondemand/sampling_rate;
+
+#=============================================================================
+#Powersave [no additional settings required, powersave only stays at 100 MHz]
+#Best Sleep Governor
+#=============================================================================
+SLEEP_GOVERNOR="powersave";
+
+sleep 1
+echo "Done"
