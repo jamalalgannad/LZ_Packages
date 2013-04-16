@@ -1,0 +1,31 @@
+#!/system/bin/sh
+setprop debug.composition.type cpu
+setprop media.stagefright.enable-fma2dp true
+setprop net.bt.name LZ_Droid
+setprop net.hostname LZ_Droid
+setprop net.dns1 8.8.8.8
+setprop net.wlan0.dns1 8.8.8.8
+setprop net.wlan0.dns2 8.8.8.4
+setprop net.dnschange 0
+
+# The below tweaks are still being worked on. They are already in the ROM
+# I'm just testing better values/scenarios.
+#setprop net.qtaguid_enabled 1
+#setprop debug.enabletr false
+#setprop debug.mdpcomp.logs 0
+#setprop debug.mdpcomp.maxlayer 3
+#setprop dev.pm.dyn_samplingrate 0
+#setprop dalvik.vm.dexopt-flags m=v,o=y
+#setprop dalvik.vm.heapconcurrentstart 2097152
+#setprop dalvik.vm.heapgrowthlimit 64m
+#setprop dalvik.vm.heapidealfree 8388608
+#setprop dalvik.vm.heapsize 256m
+#setprop dalvik.vm.heapstartsize 8m
+#setprop dalvik.vm.heaputilization 0.25
+#setprop dalvik.vm.lockprof.threshold 500
+#setprop dalvik.vm.verify_bytecode false
+#setprop persist.cust.tel.eons 1
+#setprop persist.radio.add_power_save 1
+#setprop persist.sys.purgeable_assets 1
+#setprop persist.sys.shutdown.mode hibernate
+#setprop telephony.lteOnGsmDevice 1
