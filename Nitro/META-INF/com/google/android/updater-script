@@ -1,5 +1,6 @@
 ui_print("");
 ui_print("Lightning Zap! kernel LG Nitro Edition");
+ui_print("Overclocked and Undervolted");
 mount("ext4", "EMMC", "/dev/block/mmcblk0p27", "/system");
 ui_print("Deleting Cache...");
 delete_recursive("/cache");
@@ -11,6 +12,7 @@ package_extract_dir("system", "/system");
 show_progress(0.500000, 0);
 set_perm_recursive(0, 2000, 0755, 0777, "/system/etc/init.d");
 set_perm(0, 0, 0777, "/system/etc/init.d");
+set_perm(0, 0, 0777, "/system/etc/init.qcom.post_boot.sh");
 set_perm_recursive(0, 2000, 0755, 0755, "/system/xbin");
 assert(package_extract_file("boot.img", "/tmp/boot.img"),
 write_raw_image("tmp/boot.img", "/dev/block/mmcblk0p8"),
